@@ -1,0 +1,71 @@
+@import "../../styles.scss";
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 5%;
+  background-color: $bgColorAccent;
+  .top {
+    h1 {
+      span {
+        color: $primaryColor;
+        transition: .2s ease-in-out;
+        cursor: pointer;
+        &:hover {
+          color: $secondaryColor;
+        }
+      }
+    }
+  }
+  .middle {
+    display: flex;
+    justify-content: space-between;
+    .left {
+      ul {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+    }
+    .right {
+      text-align: right;
+    }
+  }
+  .line {
+    border-bottom: 1px solid $primaryTextColor;
+    margin: 1rem 0;
+  }
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    .right {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: $mobileScreen) {
+  .footer-container {
+    .top {
+      display: flex;
+      justify-content: center;
+    }
+    .middle {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      .right {
+        text-align: center;
+        margin-top: 1rem;
+      }
+    }
+    .bottom {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+}

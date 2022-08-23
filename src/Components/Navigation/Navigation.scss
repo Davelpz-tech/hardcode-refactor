@@ -1,0 +1,231 @@
+@import "../../styles.scss";
+
+.nav-top {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $bgColorAccent;
+  padding: 1rem 5%;
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    h1 {
+      cursor: pointer;
+      a {
+        text-decoration: none;
+        &:hover {
+          color: $primaryTextColor;
+        }
+      }
+    }
+    span {
+      color: $primaryColor;
+      transition: .2s ease-in-out;
+      &:hover {
+        color: $secondaryColor;
+      }
+    }
+  }
+  .middle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    input {
+      background-color: $bgColor;
+      border: none;
+      padding: .5rem;
+      border-radius: .5em;
+      width: 40%;
+      &:focus {
+        outline: none;
+      }
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        border-radius: .5em;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $youtubeColor;
+        -webkit-transition: .4s;
+        transition: .4s;
+        &:before {
+          position: absolute;
+          border-radius: .5em;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+      }
+      input:checked + .slider {
+        background-color: $primaryColor;
+      }
+      input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+    }
+  }
+  .right {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+body {
+  position: relative;
+}
+
+.nav-left {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: $bgColorAccent;
+  width: max-content;
+  padding: 1rem 5%;
+  height: 100%;
+  gap: 2rem;
+  top: 0;
+  transform: translateX(-100%);
+  transition: .2s ease-in-out;
+  .nav-left-menu-container {
+    display: flex;
+    gap: 1rem;
+    padding-top: 1rem;
+  }
+  h1 {
+    cursor: pointer;
+    span {
+      color: $primaryColor;
+      transition: .2s ease-in-out;
+      &:hover {
+        color: $secondaryColor;
+      }
+    }
+  }
+  i {
+    cursor: pointer;
+  }
+  .top {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .channel {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      cursor: pointer;
+      .avatar {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        img {
+          height: 50px;
+          width: 50px;
+          position: absolute;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+  .middle {
+    display: flex;
+    flex-direction: column;
+    .nav-tags {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      padding: 1rem 0;
+      border-radius: .5em;
+      &:hover {
+        background-color: $bgColor;
+        padding-left: 1rem;
+      }
+      i {
+        transition: .2s ease-in-out;
+      }
+      &:hover * {
+        color: $secondaryColor;
+      }
+    }
+  }
+  .bottom {
+    justify-content: flex-end;
+  }
+}
+
+.menu {
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.active {
+  transform: translateX(0%);
+}
+
+@media screen and (max-width: $tabletScreen) {
+  .nav-top {
+    .left {}
+    .middle {
+      input {
+        width: 50%;
+      }
+    }
+    .right {}
+  }
+}
+
+@media screen and (max-width: $mobileScreen) {
+  .nav-top {
+    flex-direction: column;
+    position: static;
+    gap: 1rem;
+    .left {
+      flex-direction: column;
+    }
+    .middle {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      input {
+        width: 300px;
+      }
+    }
+    .right {
+      flex-direction: column;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      button {
+        width: 300px;
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@import "../../styles.scss";
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 73.7vh;
+  .signup-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: $bgColorAccent;
+    width: max-content;
+    border-radius: .5em;
+    padding: 3rem;
+    gap: 1rem;
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      border-radius: .5em;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      z-index: -1;
+      background-image: linear-gradient(to bottom right, #6D96FF, #FE4880);
+    }
+    .form-fields {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      input {
+        background-color: $bgColor;
+        border: none;
+        padding: .5rem;
+        border-radius: .5em;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    button {
+      margin-top: 1rem;
+    }
+  }
+}
